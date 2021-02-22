@@ -1,0 +1,33 @@
+body {
+        background: url(../images/grid-paper.jpg)
+}
+
+#portfolio {
+        text-align: center;
+        margin-bottom: 10px;
+}
+
+h2 {
+        border-top: 1px solid #ccc;
+        padding-top: 24px;
+}
+
+h3 {
+        margin: 24px 0px 24px 0px;
+}
+
+.navbar-brand {
+
+}
+
+.page-header {
+        border-color: #ccc;
+}
+
+#experience {
+
+}
+
+#return {
+        text-align: center;
+}

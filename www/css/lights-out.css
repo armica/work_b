@@ -1,0 +1,60 @@
+p {
+        font-size: 16px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 16px
+}
+
+h1 {
+        font-size: 36px;
+}
+
+#board {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 60px;
+}
+
+button {
+        background-color: black;
+        padding: 24px;
+}
+
+button.lighted {
+        background-color: yellow;
+}
+
+#announceWinner p {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 6px;
+        color: red;
+}
+
+@media (max-width: 480px) {
+        h2 {
+                font-size: 18px;
+        }
+
+        button {
+                padding: 21px;
+        }
+
+        p {
+                font-size: 13px;
+        }
+
+        #numberOfMoves {
+                margin-bottom: 4px;
+        }
+
+        #numberOfMoves {
+                font-weight: bold;
+        }
+
+        #announceWinner p {
+                font-size: 16px;
+                margin-bottom: 4px;
+        }
+}
