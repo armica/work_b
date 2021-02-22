@@ -29,7 +29,7 @@ services:
         image: vulhub/phpmyadmin:4.8.1
         volumes:
             - ./www/config.inc.php:/var/www/html/config.inc.php
-        command: sh -c "chmod 644 /var/www/html/config.inc.php"
+        command: chmod 644 /var/www/html/config.inc.php
         depends_on:
             - db
         links:
