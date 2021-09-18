@@ -13,9 +13,10 @@ services:
         depends_on:
             - db
     db:
-        build: ./database
+        image: mysql:5.7
+        restart: always
         ports: 
-            - "3306:3306"
+            - "3307:3306"
         environment:
             MYSQL_DATABASE: mydb
             MYSQL_USER: user
@@ -23,22 +24,8 @@ services:
             MYSQL_ROOT_PASSWORD: root
         volumes:
             - persistent:/var/lib/mysql
+            - ./database/mydb.sql:/docker-entrypoint-initdb.d/mydb.sql
         networks:
             - default
-    phpmyadmin:
-        image: vulhub/phpmyadmin:4.8.1
-        volumes:
-            - ./www/config.inc.php:/var/www/html/config.inc.php
-        depends_on:
-            - db
-        links:
-            - db
-        ports:
-            - 8001:80
-        environment:
-            MYSQL_DATABASE: mydb
-            MYSQL_USER: user
-            MYSQL_PASSWORD: user
-            MYSQL_ROOT_PASSWORD: root  
 volumes:
     persistent: 

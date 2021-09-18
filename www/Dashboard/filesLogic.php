@@ -9,10 +9,13 @@
 	if (isset($_POST['add_new'])) { // if save button on the form is clicked
    	
 	$name = $_POST['name'];
- 
+	$title = $_POST['title'];
+	$content = $_POST['content'];
+
 	// name of the uploaded file
 	$filename = $_FILES['file']['name'];
-	
+
+		
 	// destination of the file on the server
 	$destination = 'uploads/' . $filename;
 
@@ -23,22 +26,32 @@
     	$file = $_FILES['file']['tmp_name'];
     	$size = $_FILES['file']['size'];
 
-	if ($_FILES['file']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
-        	echo "File too large!";
-    	} else {
-        	if (move_uploaded_file($file, $destination)) {
-            		$query = "INSERT INTO myrecords (name, file, size, downloads) VALUES ('$name', '$filename', $size, 0)";
+	if($size > 0){	
+       		if (move_uploaded_file($file, $destination)) {
+			$query = "INSERT INTO myrecords (name, title, content, date, file, size, downloads) VALUES ('$name', '$title', '$content', curdate(),'$filename', $size, 0)";
+			echo $query;
             		if (mysqli_query($db, $query)) {
-				echo "<script>alert('Successd to upload file');</script>";
+				echo "<script>alert('write ok');</script>";
 				echo "<script>opener.location.href='index.php';</script>";
 				echo "<script>self.close();</script>";
             		}
-        	} else {
-			 echo "<script>alert('Failed to upload file');location.href='add.php';</script>";
+		}
+	       
+		else {
+		 	echo "<script>alert('write fail');location.href='add.php';</script>";
         	}
-    	}
+	} else{
+		$query = "INSERT INTO myrecords (name, title, content, date, file, size, downloads) VALUES ('$name', '$title', '$content', curdate(),'', 0, 0)";
+		echo $query;	
+		if (mysqli_query($db, $query)) {
+                	echo "<script>alert('write ok');</script>";
+                        echo "<script>opener.location.href='index.php';</script>";
+                        echo "<script>self.close();</script>";
+		} else{
+			echo "<script>alert('write fail');location.href='add.php';</script>";
+                }
 	}
-
+}
 // Downloads files
 if (isset($_GET['filename'])) {
     $filename = $_GET['filename'];

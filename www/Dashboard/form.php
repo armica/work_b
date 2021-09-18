@@ -41,24 +41,39 @@
    <body>
       <?php include('common/navigation.php') ?>
       <div class="container">
-         <br />
-         <div class="row">
-            <div class="col-md-12 col-md-offset-0">
-               <div class="panel panel-default panel-table">
-	          <div class="panel-heading">
-		     <div class="form-row float-right">
-			<div class="sarch_div">
-			   <form class="form" id="boardSearchVO" name="boardSearchVO">
-			    <div class="row">
-            		     <div class="col-xs-4">
-            		     <input type="text" class="form-control" id="title" name="title" value="" placeholder=""/> 
-            		     </div>
-        		     <button type="submit" class="btn float-right" id="searchBtn">Search</button>
-          		    </form></div>
-			</div>
-		      </div>
-	   	     </div>
-		    </div>
+	 <br />
+
+	<div class="form-row float-right">
+	<table class="table table-striped footable footable-1 footable-filtering footable-filtering-right footable-paging footable-paging-center breakpoint-lg" style="display: table;">
+	<thead>
+	 <tr class="footable-filtering">
+	  <th colspan="7">
+	   <form class="form-inline">
+	    <div class="form-group footable-filtering-search">
+	     <label class="sr-only">Search</label>
+		<div class="form-row float-left">
+                 <form class="navbar-form" role="search" action="common/navigation.php" method="post">
+                 <div class="form-group">
+                 <input type="text" name="url" class="form-control" placeholder="Search text">
+                 </div>
+                 <button type="submit" class="btn btn-default">SEARCH</button>
+		 </form></div>
+		 <form method="post">
+                        <div class="col col-xs-8">
+                                <button type="submit" class="btn btn-primary" name="add_new">
+                                         Add New Records
+                                </button>
+                        </div>
+                        </form>
+
+	     </div>
+
+	    </div>
+	   </form>
+	</th>
+	</tr>
+	</div>
+
 
 
 		     <div class="panel-body">

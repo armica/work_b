@@ -29,7 +29,7 @@
         $total_block = ceil($total_page/$block_ct);
         $start_num = ($page-1) * $list; 
 
-	$result2 = $db->query("select * from myrecords order by id asc limit $start_num, $list"); 
+	$result2 = $db->query("select * from myrecords order by id desc limit $start_num, $list"); 
 ?>
 
 <!DOCTYPE html>
@@ -45,45 +45,44 @@
          <div class="row">
             <div class="col-md-12 col-md-offset-0">
                <div class="panel panel-default panel-table">
-	          <div class="panel-heading">
-		     <div class="form-row float-right">
-			<div class="sarch_div">
-			   <form class="form" id="boardSearchVO" name="boardSearchVO">
-			    <div class="row">
-            		     <div class="col-xs-4">
-            		     <input type="text" class="form-control" id="title" name="title" value="" placeholder=""/> 
-            		     </div>
-        		     <button type="submit" class="btn float-right" id="searchBtn">Search</button>
-          		    </form></div>
+                  <div class="panel-heading">
+                     <div class="row">
+                        <div class="col col-xs-6">
+			   <h3 class="panel-title">Exisiting <?=$board;?> Records</h3>
 			</div>
-		      </div>
-	   	     </div>
-		    </div>
-
-
+			<div class="form-row float-left">
+			<form class="navbar-form" role="search" action="common/navigation.php" method="post">
+            		<div class="form-group">
+              		<input type="text" name="url" class="form-control" placeholder="Search text">
+            		</div>
+			<button type="submit" class="btn btn-default">SEARCH</button>
+			</form></div>
+                    </div>
+		     </div>
+    		    </div>
+		    </div> 
 		     <div class="panel-body">
                      <table class="table table-striped table-bordered table-list">
                         <thead>
                            <tr>
-                              <th class="col-xs-1"><center>ID</center></th>
-                              <th class="col-xs-2"><center>Name</center></th>
-                              <th class="col-xs-5"><center>Memo</center></th>
-                              <th class="col-xs-2"><center>File</center></th>
-                              <th class="col-xs-2"><center>Date</center></th>
-			      <th class="col-xs-2"><center>ActionM</center></th>
+                              <th class="hidden-xs">ID</th>
+                              <th>Name</th>
+                              <th>Memo</th>
+                              <th>Date</th>
+  <th>Action</th>
                            </tr>
                         </thead>
 			<tbody>
 			<?php
 			   while($board = $result2->fetch_array()){ ?>
                            <tr>
-                              <td class="hidden-xs"><center><?=$board["id"];?></center></td>
+                              <td class="hidden-xs"><?=$board["id"];?></td>
 			      <td><?=$board["name"];?></td>
 			      <td><?=$board["title"];?></td>
                               <td><a href="download.php?filename=<?=$board["file"];?>"><?=$board["file"];?></a></td> 
-                              <td><center><?=$board["date"];?></center></td>
+                              <td><?=$board["date"];?></td>
                               <!--<td class="text-right"><a onclick="confirm('Are you sure?')" href="?delete=<?=$row["id"];?>"> <i class="fa fa-trash"></i></a></td>-->
-                              <td><center><a onclick="confirm('Are you sure?')" href="delete.php?id=<?=$board["id"];?>&filename=<?=$board["file"];?>"> <i class="fa fa-trash"></i></a></center></td>
+                              <td class="text-right"><a onclick="confirm('Are you sure?')" href="delete.php?id=<?=$board["id"];?>&filename=<?=$board["file"];?>"> <i class="fa fa-trash"></i></a></td>
                            </tr>
                         <?php } ?>
                         </tbody>

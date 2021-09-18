@@ -6,7 +6,9 @@ body {
 	font-size: 120%;
 	background: #F8F8FF;
 }
-
+ul li {
+        list-style:none;
+}
 .header {
 	width: 30%;
 	margin: 50px auto 0px;
@@ -94,4 +96,12 @@ card-header:first-child {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     padding: 1.25rem;
+}
+.pagination {
+	display: block;
+	text-align: center;
+}
+.pagination > li > a {
+	float: none;
+	margin-left: -5px;
 }

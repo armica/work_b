@@ -29,7 +29,10 @@ create database if NOT EXISTS mydb;
 use mydb;
 CREATE TABLE `myrecords` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `date` date NOT NULL,
   `file` varchar(255) DEFAULT NULL,
   `size` int(11) NOT NULL,
   `downloads` int(11) NOT NULL
@@ -39,8 +42,8 @@ CREATE TABLE `myrecords` (
 -- Dumping data for table `myrecords`
 --
 
-INSERT INTO `myrecords` (`id`, `name`, `file`, `size`, `downloads`) VALUES
-(1, 'James Butt', 'README.MD',10, 1);
+INSERT INTO `myrecords` (`id`, `name`, `title`, `content`, `date`, `file`, `size`, `downloads`) VALUES
+(1, 'James Butt', 'READ ME', 'Hi..!', '2040-11-11', 'README.MD',10, 1);
 
 -- --------------------------------------------------------
 
@@ -60,7 +63,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'admin', 'demo@demo.com', '81dc9bdb52d04dc20036dbd8313ed055');
+(1, 'admin', 'demo@demo.com', 'qwer1234');
 
 --
 -- Indexes for dumped tables
